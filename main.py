@@ -4,7 +4,8 @@ import random
 tim = Turtle()
 screen = Screen()
 screen.colormode(255)
-# screen.screensize(300, 300)
+tim.speed("fastest")
+tim.hideturtle()
 screen.setup(402, 400)
 
 colors = [
@@ -20,6 +21,14 @@ colors_a = [
     (172, 172, 222), (171, 218, 252)
 ]
 
+def rgb_random():
+    r = 0
+    g = 0
+    b = 0
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r, g, b)
 
 def paint(number_of_dots):
     tim.penup()
@@ -29,7 +38,8 @@ def paint(number_of_dots):
     tim.goto(x, y)
     for a in range(0, number_of_dots):
         for b in range(0, number_of_dots):
-            tim.dot(20, random.choice(colors_a))
+            # tim.dot(20, random.choice(colors))
+            tim.dot(20, rgb_random())
             tim.fd(40)
         y += 40
         tim.goto(x, y)
